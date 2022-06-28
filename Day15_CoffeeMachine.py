@@ -32,10 +32,13 @@ resources = {
 }
 
 def ResourceChecker(drink):
-    for values in MENU[drink]['ingredients']
+    for key in MENU[drink]['ingredients'].keys():
+        if resources[key] - MENU[drink]['ingredients'][key] < 0:
+            print("Not Enough Resources")
+            return False
+        else:
+            resources[key] = resources[key] - MENU[drink]['ingredients'][key]
     return True
-
-    return False
 
 def Payment(drink):
     print("Please insert coins")
@@ -49,30 +52,33 @@ def Payment(drink):
         if TotalPayment - MENU["latte"]["cost"] < 0:
             print("Sorry that's not enough money. Money refunded. ")
         else:
-            CustomerChange = TotalPayment - MENU["latte"]["cost"]
+            CustomerChange = round(TotalPayment - MENU["latte"]["cost"],2)
             resources['money'] += MENU["latte"]["cost"]
             if ResourceChecker("latte") == True:
                 print(f"Here is your change: ${CustomerChange}")
+                print(f"Here is your {drink} enjoy")
             else:
                 print(f"Not enough ingredients for {drink}")
     elif drink == "cappuccino":
         if TotalPayment - MENU["cappuccino"]["cost"] < 0:
             print("Sorry that's not enough money. Money refunded. ")
         else:
-            CustomerChange = TotalPayment - MENU["cappuccino"]["cost"]
+            CustomerChange = round(TotalPayment - MENU["cappuccino"]["cost"],2)
             resources['money'] += MENU["cappuccino"]["cost"]
             if ResourceChecker("cappuccino") == True:
                 print(f"Here is your change: ${CustomerChange}")
+                print(f"Here is your {drink} enjoy")
             else:
                 print(f"Not enough ingredients for {drink}")
     elif drink == "espresso":
         if TotalPayment - MENU["espresso"]["cost"] < 0:
             print("Sorry that's not enough money. Money refunded. ")
         else:
-            CustomerChange = TotalPayment - MENU["espresso"]["cost"]
+            CustomerChange = round(TotalPayment - MENU["espresso"]["cost"],2)
             resources['money'] += MENU["espresso"]["cost"]
             if ResourceChecker("espresso") == True:
                 print(f"Here is your change: ${CustomerChange}")
+                print(f"Here is your {drink} enjoy")
             else:
                 print(f"Not enough ingredients for {drink}")
 
