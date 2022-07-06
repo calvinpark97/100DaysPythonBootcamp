@@ -4,9 +4,12 @@ from random import Random
 
 Timmy = Turtle()
 Timmy.shape("circle")
-Timmy.color("white")
+Timmy.ht()
+Timmy.color("black")
+Timmy.speed(0)
 LoopOn = True
 colormode(255)
+Color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
 
 #Box
 #Timmy.speed(2)
@@ -79,14 +82,21 @@ colormode(255)
 
 
 #Challenge 4 - Random walk
-while LoopOn == True:
-    Timmy.ht()
-    Color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
-    Timmy.pencolor(Color)
-    Timmy.pensize(10)
-    Timmy.forward(30)
-    MoveDirection = (random.choice([0, 90 , 180, 270]))
-    Timmy.right(MoveDirection)
+#while LoopOn == True:
+#    Timmy.ht()
+#    Color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+#    Timmy.pencolor(Color)
+#    Timmy.pensize(10)
+#    Timmy.forward(30)
+#    MoveDirection = (random.choice([0, 90 , 180, 270]))
+#    Timmy.right(MoveDirection)
+
+#Challenge 5 - Spriograph
+#for x in range(0, 72):
+#    Color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+#    Timmy.color(Color)
+#    Timmy.circle(100)
+#    Timmy.right(5)
 
 Screen = Screen()
 Screen.exitonclick()
