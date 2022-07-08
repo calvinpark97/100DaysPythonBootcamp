@@ -10,12 +10,11 @@ starting_position = [(0,0),(-20,0), (-40,0)]
 game_on = True
 screen.tracer(0)
 
+#generating the snake
 snake = Snake()
-
 snake.create_snake()
 
 while game_on == True:
-
     snake.move()
 
 screen.exitonclick()
