@@ -15,6 +15,6 @@ snake = Snake()
 snake.create_snake()
 
 while game_on == True:
-    snake.move()
+    4snake.move()
 
 screen.exitonclick()
