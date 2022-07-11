@@ -26,6 +26,7 @@ class Snake:
         self.snake_body[0].forward(move_distance)
 
     def Up(self):
+        if self.
         self.snake_body[0].seth(90)
 
 
