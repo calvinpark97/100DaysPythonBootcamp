@@ -2,12 +2,40 @@ from turtle import Turtle, Screen
 import time
 
 screen = Screen()
-screen.setup(width=1000,height=800)
+screen.setup(width=800,height=600)
 screen.bgcolor("black")
 screen.title("Pong")
 game_on = True
-screen.tracer(0)
+def moveUp():
+    if rightPaddle.ycor() > 240:
+        pass
+    else:
+        newy = rightPaddle.ycor() + 20
+        rightPaddle.goto(350,newy)
+
+def moveDown():
+    if rightPaddle.ycor() < -230:
+        pass
+    else:
+        newy = rightPaddle.ycor() - 20
+        rightPaddle.goto(350,newy)
 
 
 
+rightPaddle = Turtle()
+rightPaddle.ht()
+rightPaddle.shape("square")
+rightPaddle.color("white")
+rightPaddle.turtlesize(5, 1)
+rightPaddle.pu()
+rightPaddle.ht()
+rightPaddle.setpos(350,0)
+rightPaddle.st()
+screen.listen()
+screen.onkeypress(moveUp, "Up")
+screen.onkeypress(moveDown, "Down")
+
+while game_on == True:
+    screen.update()
+    
 screen.exitonclick()
