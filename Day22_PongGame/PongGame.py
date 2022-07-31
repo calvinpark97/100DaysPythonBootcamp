@@ -12,6 +12,16 @@ def moveUp():
     else:
         newy = rightPaddle.ycor() + 20
         rightPaddle.goto(350,newy)
+<<<<<<< HEAD
+=======
+
+def moveDown():
+    if rightPaddle.ycor() < -230:
+        pass
+    else:
+        newy = rightPaddle.ycor() - 20
+        rightPaddle.goto(350,newy)
+>>>>>>> 41c2a66075d3a46e374d9736075702445e5e6fea
 
 def moveDown():
     if rightPaddle.ycor() < -230:
@@ -28,9 +38,12 @@ def LeftFlipperCreate():
     LeftFlipper.goto(490, 0)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 LeftFlipperCreate()
 =======
 
+=======
+>>>>>>> 41c2a66075d3a46e374d9736075702445e5e6fea
 rightPaddle = Turtle()
 rightPaddle.ht()
 rightPaddle.shape("square")
