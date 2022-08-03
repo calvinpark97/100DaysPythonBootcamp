@@ -7,6 +7,8 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.pu()
+        print(self.speed())
+        self.move_speed = 0.1
         self.directionx=10
         self.directiony=10
 
@@ -22,6 +24,7 @@ class Ball(Turtle):
         self.directionx *= -1
 
     def resetPosition(self):
+        self.move_speed = 0.1
         self.goto(0,0)
 
 
