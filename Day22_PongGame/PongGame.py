@@ -1,43 +1,55 @@
 from turtle import Turtle, Screen
+from paddle import Paddle
+from ball import Ball
+from scoreboard import Scoreboard
+from middleline import middleLine
+
 import time
 
 screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong")
+screen.tracer(0)
 game_on = True
 
 
-def moveUp():
-    if rightPaddle.ycor() > 240:
-        pass
-    else:
-        newy = rightPaddle.ycor() + 20
-        rightPaddle.goto(350, newy)
 
+rightPaddle = Paddle((350, 0))
+leftPaddle = Paddle((-350, 0))
+ball = Ball()
+score = Scoreboard()
+middleline = middleLine()
 
-def moveDown():
-    if rightPaddle.ycor() < -230:
-        pass
-    else:
-        newy = rightPaddle.ycor() - 20
-        rightPaddle.goto(350, newy)
-
-
-rightPaddle = Turtle()
-rightPaddle.ht()
-rightPaddle.shape("square")
-rightPaddle.color("white")
-rightPaddle.turtlesize(5, 1)
-rightPaddle.pu()
-rightPaddle.ht()
-rightPaddle.setpos(350, 0)
-rightPaddle.st()
 screen.listen()
-screen.onkeypress(moveUp, "Up")
-screen.onkeypress(moveDown, "Down")
+screen.onkeypress(rightPaddle.MoveUp, "Up")
+screen.onkeypress(rightPaddle.MoveDown, "Down")
+screen.onkeypress(leftPaddle.MoveUp, "w")
+screen.onkeypress(leftPaddle.MoveDown, "s")
 
 while game_on == True:
+    time.sleep(0.08)
     screen.update()
+    ball.move()
+
+
+    #Detect Collision with top and bottom walls
+    if ball.ycor() > 280 or ball.ycor() < -270:
+        ball.bounceY()
+
+    #Detect collision with right paddle
+    if ball.distance(rightPaddle) < 100 and ball.xcor() > 320 or ball.distance(leftPaddle) < 50 and ball.xcor() < -320:
+        ball.bounceX()
+
+    #Detect ball goes past
+    if ball.xcor() > 350:
+        score.leftPoint()
+        ball.resetPosition()
+
+
+    if ball.xcor() < -350:
+        score.rightPoint()
+        ball.resetPosition()
+
 
 screen.exitonclick()
