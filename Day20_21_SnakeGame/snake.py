@@ -37,6 +37,13 @@ class Snake:
         starting_snake.goto(position)
         self.snake_body.append(starting_snake)
 
+    def reset(self):
+        for body in self.snake_body:
+            body.goto(1000,1000)
+        self.snake_body.clear()
+        self.create_snake()
+        self.head = self.snake_body[0]
+
     def Up(self):
         if self.head.heading() == Down_direction:
             pass
