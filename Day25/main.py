@@ -15,6 +15,7 @@ def name_animation(player_answer, xcor, ycor):
     answer = Turtle()
     answer.ht()
     answer.pu()
+    answer.isvisible()
     answer.color('black')
     style = ('Arial', 10)
     answer.goto(xcor, ycor)
