@@ -5,7 +5,7 @@ window.title("GUI Test 1")
 window.minsize(width=500, height=500)
 
 def button_clicked():
-    new_text = round(int(miles_entry.get()) * 1.6, 3)
+    new_text = round(int(miles_entry.get()) * 1.6, 2)
     converted_km.config(text=new_text)
 
 miles_entry = tkinter.Entry(width=10)
