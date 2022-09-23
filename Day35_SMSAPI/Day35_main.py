@@ -30,7 +30,7 @@ if will_rain:
     message = client.messages \
         .create(
         body="Bring an Umbrella",
-        from_='+14029233602',
-        to='+12246235007'
+        from_='+SECRETS',
+        to='+SECRETS'
     )
     print(message.status)
